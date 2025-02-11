@@ -5,6 +5,9 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -44,5 +47,9 @@ public class User {
             return false;
         }
     }
+
+
+    @OneToMany(mappedBy="user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> rez = new ArrayList<>();
 
 }

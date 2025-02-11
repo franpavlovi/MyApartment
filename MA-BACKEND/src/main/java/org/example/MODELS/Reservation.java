@@ -30,4 +30,13 @@ public class Reservation {
     private LocalDate endDate;
 
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "apartment_id")
+    private Apartment apartment;
+
+
 }

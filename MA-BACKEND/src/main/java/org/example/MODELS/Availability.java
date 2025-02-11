@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 
 @Entity
 @Getter
@@ -18,10 +20,14 @@ public class Availability {
     private int id;
 
     @NotNull
-    private String startDate;
+    private LocalDate  startDate;
 
     @NotNull
-    private String endDate;
+    private LocalDate endDate;
 
+
+    @ManyToOne
+    @JoinColumn(name = "apartment_id")
+    private Apartment apartment;
 
 }
